@@ -1,8 +1,6 @@
-function [a,b] = Fitter(datafile,func,a0,b0)
+function [a,b] = Fitter(data,func,a0,b0)          
 
-% get data from csv
-data = importdata(datafile);
-
+% seperate data into x and y vectors
 x = data(:,1);
 y = data(:,2);
 
@@ -11,12 +9,12 @@ a = a0;
 b = b0;
 
 % Tolerance for convergence 
-TOL = 1e-24;
+TOL = 1e-12;
 X = Inf;
 
 % counter = 0;
 % repeatedly solve matrix equation
-while max(X) > TOL
+while abs(max(X)) > TOL
     
     % get vectors for f and partials
     [F,FA,FB] = func(x,a,b);
