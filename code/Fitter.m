@@ -1,3 +1,14 @@
+% Desc: fits a model with 2 parameters to data stored in a n x 2 matrix
+%
+% Inputs:
+% data - an n x 2 matrix containing data for fit
+% func - function file containing 2 parameter model to be fit to the data. 
+%   Must accept three inputs (xdata, param1, param2) and output a matrix of
+%   (model predicted values, derivative wrt param1 values, derivative wrt 
+%   param2 values)
+% a0 - initial guess for param1
+% b0 - initial guess for param2
+
 function [a,b] = Fitter(data,func,a0,b0)          
 
 % seperate data into x and y vectors
@@ -31,4 +42,4 @@ while abs(max(X)) > TOL
 %     counter  = counter + 1;
 end
 
-plot(x,y,x,func(x,a,b),'--')
+% plot(x,y,x,func(x,a,b),'--')
