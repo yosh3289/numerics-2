@@ -30,9 +30,7 @@ grad = [y0 * k * (k - y0) * exp(-r * ts) .* ts .* coef, ...
 % Calculate the left- and right-hand sides of the update equation
 LHS = grad' * grad;
 diff = ys - fvals;
-RHS = (sum( [diff,diff,diff] .* grad, 1 ))';
-
-disp( LHS )
+RHS = grad' * [diff,diff,diff];
 
 % Calculate the value of b - a (see writeup)
 b_minus_a = LHS \ RHS;
