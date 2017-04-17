@@ -11,7 +11,7 @@ ys = data(:,2);
 
 % Re-scale the data
 % Re-scale t
-ts = 2 * (ts - min(ts)) / (max(ts) - min(ts)) - 0.5;
+ts = (ts - min(ts)) / (max(ts) - min(ts));
 
 % Re-scale y
 ys = (ys - min(ys)) / (max(ys) - min(ys));
@@ -19,7 +19,7 @@ ys = (ys - min(ys)) / (max(ys) - min(ys));
 % rescale k and y0
 r  = 1;
 k  = 2;
-y0 = 0.3;
+y0 = 0.7;
 
 % Store the current error and tolerance
 error = sum( (ys - logistic(ts,r,k,y0)).^2 );
