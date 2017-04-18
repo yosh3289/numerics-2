@@ -20,7 +20,7 @@ ys = (ys - min(ys)) / (max(ys) - min(ys));
 % rescale k and y0
 r  = 1;
 k  = 2;
-y0 = 0.5;
+y0 = 0.5;  %Are we supposed to set y0=k/2?
 V  = 0;
 
 % Store the current error and tolerance
